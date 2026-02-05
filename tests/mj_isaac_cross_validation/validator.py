@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import numpy as np
+import mujoco
 import torch
 from typing import TYPE_CHECKING
 
@@ -56,7 +57,6 @@ class ValidationRunner:
         self.step_count = 0
 
         # Compare joint positions at reset
-        import mujoco
         print("\n=== INITIAL JOINT POSITION COMPARISON (after reset) ===")
         isaac_joint_names = self.isaac_sim.articulation.joint_names
         isaac_joint_pos = self.isaac_sim.articulation.data.joint_pos[0].cpu().numpy()
