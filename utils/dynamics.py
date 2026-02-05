@@ -344,7 +344,7 @@ def calculate_external_torques_compare(
     jacobians_w_masked = jacobians_w.clone()
     jacobians_b_masked = jacobians_b.clone()
     if joint_mask is not None:
-        print("JOINT MASK \n \n \n AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", joint_mask)
+        print("JOINT MASK \n \n \n", joint_mask)
         jacobians_w_masked[:, :, :, ~joint_mask] = 0
         jacobians_b_masked[:, :, :, ~joint_mask] = 0
 
