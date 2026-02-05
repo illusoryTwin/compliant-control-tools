@@ -21,7 +21,8 @@ This will:
 3. When you close the viewer window, it saves to data/wave_arms.pkl
 
 
-## `mj_isaac_cross_validation` (Validation across Mujoco and Issac simulation engines)
+## `Tests` (Validation across Mujoco and Issac simulation engines) 
+`mj_isaac_cross_validation`
 
 ```
 python tests/mj_isaac_cross_validation/run_validation.py --robot unitree_g1 --mode trajectory --trajectory data/wave_arms.pkl
