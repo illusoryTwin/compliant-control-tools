@@ -75,7 +75,7 @@ def transform_jacobian_world2body(jacobian_w: torch.Tensor, body_quat_w: torch.T
     quat_flat = body_quat_w.reshape(-1, 4)
 
     # Convert quaternions to rotation matrices (batched)
-    # R_w_b: rotation from body to world, shape [num_envs * num_bodies, 3, 3]
+    # R_w_b: rotation from body to world
     R_w_b = matrix_from_quat(quat_flat)
 
     # R_b_w = R_w_b^T (transpose last two dims)
@@ -85,8 +85,6 @@ def transform_jacobian_world2body(jacobian_w: torch.Tensor, body_quat_w: torch.T
     R_b_w = R_b_w.reshape(num_envs, num_bodies, 3, 3)
 
     # Transform Jacobian: J_b = R_b_w @ J_w
-    # jacobian_w linear part: [num_envs, num_bodies, 3, num_joints]
-    # jacobian_w angular part: [num_envs, num_bodies, 3, num_joints]
     # Use einsum for batched matrix multiplication: R @ J
     jacobian_b_linear = torch.einsum('ebij,ebjk->ebik', R_b_w, jacobian_w[:, :, :3, :])
     jacobian_b_angular = torch.einsum('ebij,ebjk->ebik', R_b_w, jacobian_w[:, :, 3:, :])

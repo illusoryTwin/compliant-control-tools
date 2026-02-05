@@ -24,7 +24,7 @@ parser.add_argument(
 parser.add_argument(
     "--zero-joints",
     action="store_true",
-    help="Initialize all joints to zero instead of default positions",
+    help="Initialize all joints to zero",
 )
 parser.add_argument(
     "--trajectory",
@@ -36,7 +36,7 @@ parser.add_argument(
     "--decimation",
     type=int,
     default=5,
-    help="MSD integration sub-steps per frame (default: 5)",
+    help="MSD integration sub-steps per frame",
 )
 parser.add_argument(
     "--mode",
