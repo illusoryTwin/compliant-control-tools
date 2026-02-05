@@ -1,0 +1,24 @@
+[project]
+name = "compliant-control-tools"
+version = "0.1.0"
+description = "Compliant control tools for robotics with MuJoCo/Isaac Sim cross-validation"
+requires-python = ">=3.10"
+
+dependencies = [
+    "numpy",
+    "torch",
+    "mujoco",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["core*", "utils*", "data*"]

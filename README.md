@@ -38,3 +38,20 @@ This will:
     - External wrenches (forces/torques)
     - Computed torques
     - MSD (mass-spring-damper) compliance state
+
+
+## Requirements
+
+### Python Dependencies
+
+- **MuJoCo** (`pip install mujoco`)
+- **Unitree robot models** at `../unitree_robotics/unitree_mujoco/unitree_robots/g1/scene.xml`
+- **Isaac Sim 4.0+** with Isaac Lab extension ([installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html))
+- **PyTorch** with CUDA support
+- Robot URDF/USD assets configured in `robot_configs.py`
+- Numpy, torch
+
+### Robot Assets
+The validation scripts require robot model files:
+- Unitree G1: URDF/USD files from Unitree or Isaac Lab assets
+- Configure paths in `tests/mj_isaac_cross_validation/robot_configs.py`
